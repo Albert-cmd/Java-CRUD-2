@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2019 10:09:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="hibernate_db" name="Clases.Employees" optimistic-lock="version" table="employees">
+    <id name="empCode" type="java.lang.Integer">
+      <column name="emp_code"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Clases.Departments" fetch="select" name="departments">
+      <column name="dep_code"/>
+    </many-to-one>
+    <property name="empName" type="string">
+      <column length="40" name="emp_name"/>
+    </property>
+    <property name="position" type="string">
+      <column length="20" name="position"/>
+    </property>
+    <property name="salary" type="big_decimal">
+      <column name="salary" precision="8"/>
+    </property>
+  </class>
+</hibernate-mapping>
